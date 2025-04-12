@@ -52,7 +52,7 @@ function Landing() {
             <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-auto">
               <div className="space-y-6">
                 <div className="border-b pb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">John Developer</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Om Bhanushali</h2>
                   <p className="text-gray-600">Senior Software Engineer</p>
                 </div>
                 <div className="space-y-2">

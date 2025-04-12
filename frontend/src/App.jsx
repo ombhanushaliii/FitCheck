@@ -5,6 +5,10 @@ import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Resume from './pages/Resume'
 import LinkedinComp from './pages/LinkedinComp'
+import Dashboard from './pages/Dashboard'
+import ResumeUploadPage from './pages/ResumeUpload'
+import JobPostPage from './pages/JobPost'
+import NotFoundPage from './pages/NotFound'
 
 
 const App = () => {
@@ -15,7 +19,11 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/resume/upload" element={<ResumeUploadPage />} /> */}
           <Route path="/linkedin-comparison" element={<LinkedinComp />} />
+          <Route path="/jobpost" element={<JobPostPage />} />
+          <Route path="*" element={<NotFoundPage />} />
       </Routes>
       </Router>
     </AuthProvider>
