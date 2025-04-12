@@ -37,7 +37,11 @@ function Landing() {
               Create professional resumes in minutes with our AI-powered platform. Stand out from the crowd and land your dream job with beautifully crafted resumes tailored to your industry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/profile-scraper" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
+              <Link to="/linkedin-comparison" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
+                Compare LinkedIn Profiles
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <Link to="/profile-scraper" className="bg-indigo-100 text-indigo-700 px-6 py-3 rounded-lg font-medium hover:bg-indigo-200 transition-colors flex items-center justify-center">
                 Try LinkedIn Scraper
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
