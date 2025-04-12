@@ -43,7 +43,7 @@ function Login() {
           </Link>
           <div className="flex items-center space-x-2">
             <FileText className="w-6 h-6 text-indigo-600" />
-            <span className="text-lg font-bold">ResumeForge</span>
+            <span className="text-lg font-bold">FitCheck</span>
           </div>
         </div>
         
@@ -88,7 +88,7 @@ function Login() {
         </div>
         
         <div className="mt-8 text-center text-sm text-gray-500">
-          &copy; 2025 ResumeForge. All rights reserved.
+          &copy; 2025 FitCheck. All rights reserved.
         </div>
       </div>
     </div>

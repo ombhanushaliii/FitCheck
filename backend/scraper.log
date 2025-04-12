@@ -1,0 +1,49 @@
+2025-04-12 22:41:22,612 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-12 22:41:22,787 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 22:41:22,790 - __main__ - INFO - Starting Flask server
+2025-04-12 22:41:22,805 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 22:41:22,809 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-12 22:43:44,422 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-12 22:43:44,566 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 22:43:44,568 - __main__ - INFO - Starting Flask server
+2025-04-12 22:43:44,620 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-12 22:43:44,620 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 22:43:44,623 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 22:43:44,877 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-12 22:43:45,024 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 22:43:45,026 - __main__ - INFO - Starting Flask server
+2025-04-12 22:43:45,041 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 22:43:45,045 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-12 22:44:26,262 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 22:44:26] "OPTIONS /api/scrape HTTP/1.1" 200 -
+2025-04-12 22:44:26,523 - __main__ - INFO - Received scrape request at 2025-04-12 22:44:26.520241
+2025-04-12 22:44:26,524 - __main__ - INFO - Request data: {'url': 'https://www.linkedin.com/in/omthanage'}
+2025-04-12 22:44:26,525 - __main__ - INFO - Processing URL: https://www.linkedin.com/in/omthanage
+2025-04-12 22:44:26,525 - __main__ - INFO - Starting scrape for profile: https://www.linkedin.com/in/omthanage
+2025-04-12 22:45:01,865 - __main__ - INFO - Scraping completed for https://www.linkedin.com/in/omthanage
+2025-04-12 22:45:01,869 - __main__ - INFO - Saved profile data to D:\Desktop\Hack8\fitcheck\backend\data\omthanage.json
+2025-04-12 22:45:01,870 - __main__ - INFO - Request completed in 35.349833 seconds
+2025-04-12 22:45:01,871 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 22:45:01] "POST /api/scrape HTTP/1.1" 200 -
+2025-04-12 22:47:02,710 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 22:47:02] "OPTIONS /api/scrape HTTP/1.1" 200 -
+2025-04-12 22:47:02,977 - __main__ - INFO - Received scrape request at 2025-04-12 22:47:02.977150
+2025-04-12 22:47:02,977 - __main__ - INFO - Request data: {'url': 'https://www.linkedin.com/in/ombhanushaliii'}
+2025-04-12 22:47:02,978 - __main__ - INFO - Processing URL: https://www.linkedin.com/in/ombhanushaliii
+2025-04-12 22:47:02,979 - __main__ - INFO - Starting scrape for profile: https://www.linkedin.com/in/ombhanushaliii
+2025-04-12 22:47:31,839 - __main__ - INFO - Scraping completed for https://www.linkedin.com/in/ombhanushaliii
+2025-04-12 22:47:31,842 - __main__ - INFO - Saved profile data to D:\Desktop\Hack8\fitcheck\backend\data\ombhanushaliii.json
+2025-04-12 22:47:31,843 - __main__ - INFO - Request completed in 28.866414 seconds
+2025-04-12 22:47:31,844 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 22:47:31] "POST /api/scrape HTTP/1.1" 200 -
+2025-04-12 22:50:12,275 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\backend\\app.py', reloading
+2025-04-12 22:50:12,358 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 22:50:12,611 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-12 22:50:12,773 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 22:50:12,775 - __main__ - INFO - Starting Flask server
+2025-04-12 22:50:12,803 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 22:50:12,806 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-12 22:50:31,610 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\Scrapper\\scrapper.py', reloading
+2025-04-12 22:50:31,664 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 22:50:32,002 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-12 22:50:32,162 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 22:50:32,164 - __main__ - INFO - Starting Flask server
+2025-04-12 22:50:32,179 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 22:50:32,183 - werkzeug - INFO -  * Debugger PIN: 831-098-246

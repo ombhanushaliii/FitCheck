@@ -9,7 +9,7 @@ function Landing() {
       <nav className="px-6 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <FileText className="w-8 h-8 text-indigo-600" />
-          <span className="text-xl font-bold">ResumeForge</span>
+          <span className="text-xl font-bold">FitCheck</span>
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#" className="text-gray-600 hover:text-gray-900">Product</a>
@@ -37,13 +37,13 @@ function Landing() {
               Create professional resumes in minutes with our AI-powered platform. Stand out from the crowd and land your dream job with beautifully crafted resumes tailored to your industry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/login" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
-                Get started
+              <Link to="/profile-scraper" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
+                Try LinkedIn Scraper
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <button className="text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 hover:border-gray-400 transition-colors">
-                Learn more →
-              </button>
+              <Link to="/login" className="text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 hover:border-gray-400 transition-colors">
+                Get started →
+              </Link>
             </div>
           </div>
 
