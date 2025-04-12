@@ -47,3 +47,19 @@
 2025-04-12 22:50:32,164 - __main__ - INFO - Starting Flask server
 2025-04-12 22:50:32,179 - werkzeug - WARNING -  * Debugger is active!
 2025-04-12 22:50:32,183 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-12 23:31:53,122 - __main__ - INFO - Added Scrapper directory to path: D:\fitcheck\backend\..\Scrapper
+2025-04-12 23:31:53,144 - __main__ - ERROR - Failed to import scrape_linkedin_profile: No module named 'bs4'
+2025-04-12 23:33:12,961 - __main__ - INFO - Added Scrapper directory to path: D:\fitcheck\backend\..\Scrapper
+2025-04-12 23:33:13,324 - __main__ - ERROR - Failed to import scrape_linkedin_profile: No module named 'selenium'
+2025-04-12 23:33:56,207 - __main__ - INFO - Added Scrapper directory to path: D:\fitcheck\backend\..\Scrapper
+2025-04-12 23:33:56,614 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 23:33:56,617 - __main__ - INFO - Starting Flask server
+2025-04-12 23:33:56,880 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-12 23:33:56,880 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 23:33:56,883 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 23:33:57,172 - __main__ - INFO - Added Scrapper directory to path: D:\fitcheck\backend\..\Scrapper
+2025-04-12 23:33:57,441 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-12 23:33:57,443 - __main__ - INFO - Starting Flask server
+2025-04-12 23:33:57,463 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 23:33:57,468 - werkzeug - INFO -  * Debugger PIN: 124-520-048
