@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-//import { createClient } from '@supabase/supabase-js';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FileText, Loader2, ArrowLeft } from 'lucide-react';
-
-// Initialize Supabase client
-// const supabase = createClient(
-//   import.meta.env.VITE_SUPABASE_URL || '',
-//   import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-// );
+import { useAuth } from '../context/AuthContext';
 
 function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const { user, supabase } = useAuth();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
 
   const handleGoogleLogin = async () => {
     try {
