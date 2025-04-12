@@ -4,7 +4,7 @@ import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu } from
 
 function Dashboard() {
   // Mock data and states
-  const [user] = useState({ name: 'John Developer' });
+  const [user] = useState({ name: 'Om Bhanushali' });
   const [resumes] = useState([
     { _id: '1', fileName: 'resume_2024.pdf', createdAt: '2024-03-15T10:00:00Z' }
   ]);
