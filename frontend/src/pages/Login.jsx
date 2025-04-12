@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FileText, Loader2, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 function Login() {
@@ -37,40 +36,33 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full px-6 py-12 bg-white rounded-xl shadow-lg">
-        <div className="flex justify-between items-center mb-6">
-          <Link to="/" className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to home</span>
-          </Link>
-          <div className="flex items-center space-x-2">
-            <FileText className="w-6 h-6 text-indigo-600" />
-            <span className="text-lg font-bold">FitCheck</span>
-          </div>
-        </div>
-        
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h2>
-          <p className="text-gray-600">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-md">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-gray-900">FitCheck</h1>
+          <h2 className="mt-6 text-2xl font-bold text-gray-900">Welcome back</h2>
+          <p className="mt-2 text-sm text-gray-600">
             Sign in to continue to your account
           </p>
         </div>
         
-        <div>
+        <div className="mt-8">
           <button 
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group relative w-full flex justify-center py-3 px-4 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:-translate-y-1 shadow-sm"
           >
             {loading ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
+              <div className="flex items-center">
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
                 <span>Signing in...</span>
-              </>
+              </div>
             ) : (
-              <>
-                <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex items-center">
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
                     <path fill="#4285F4" d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"/>
                     <path fill="#34A853" d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"/>
@@ -79,19 +71,21 @@ function Login() {
                   </g>
                 </svg>
                 <span>Sign in with Google</span>
-              </>
+              </div>
             )}
           </button>
           
           {error && (
-            <div className="mt-4 text-sm text-red-600 text-center">
+            <div className="mt-4 p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-600 text-center">
               {error}
             </div>
           )}
         </div>
         
-        <div className="mt-8 text-center text-sm text-gray-500">
-          &copy; 2025 FitCheck. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-gray-200">
+          <p className="text-center text-sm text-gray-500">
+            &copy; 2025 FitCheck. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
