@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 function Dashboard() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
   
   // Mock data and states
   const [resumes] = useState([
@@ -36,6 +37,12 @@ function Dashboard() {
     return user.user_metadata?.name || user.email?.split('@')[0] || 'there';
   };
 
+  // Handle logout
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -44,6 +51,15 @@ function Dashboard() {
           <div className="flex items-center space-x-2">
             <FileText className="w-8 h-8 text-indigo-600" />
             <span className="text-xl font-bold">FitCheck</span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={handleLogout}
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center"
+            >
+              Log out
+              <LogOut className="ml-2 w-4 h-4" />
+            </button>
           </div>
         </div>
       </nav>
