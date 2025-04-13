@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu, LogOut } from 'lucide-react';
+import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu, LogOut, RefreshCcw } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 function Dashboard() {
@@ -76,25 +76,14 @@ function Dashboard() {
         {/* Quick Actions */}
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Link to="/resume/upload" className="flex items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
+          <div className="w-full gap-4 flex flex-col">
+            <Link to="/resume" className="flex items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
               <Upload className="w-5 h-5 text-indigo-600" />
-              <span className="ml-3 font-medium text-indigo-600">Upload Resume</span>
+              <span className="ml-3 font-medium text-indigo-600">Resume Analysis</span>
             </Link>
-
-            <Link to="/job/create" className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-              <Plus className="w-5 h-5 text-blue-600" />
-              <span className="ml-3 font-medium text-blue-600">Add Job Post</span>
-            </Link>
-
-            <button className="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
-              <BarChart3 className="w-5 h-5 text-green-600" />
-              <span className="ml-3 font-medium text-green-600">New Analysis</span>
-            </button>
-
-            <Link to="/analysis/latest" className="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
-              <ExternalLink className="w-5 h-5 text-purple-600" />
-              <span className="ml-3 font-medium text-purple-600">Latest Results</span>
+            <Link to="/linkedin-comparison" className="flex items-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
+              <RefreshCcw className="w-5 h-5 text-indigo-600" />
+              <span className="ml-3 font-medium text-indigo-600">Professional Profile Sync</span>
             </Link>
           </div>
         </div>

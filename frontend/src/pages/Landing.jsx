@@ -71,13 +71,13 @@ function Landing() {
                   </div>
                   <div className="space-y-2">
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '90%' }}></div>
+                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '50%' }}></div>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '85%' }}></div>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '95%' }}></div>
+                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '25%' }}></div>
                     </div>
                   </div>
                 </div>
