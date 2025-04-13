@@ -20,7 +20,7 @@ try:
 except Exception as e:
     logger.error(f"Error configuring Gemini API: {e}")
 
-def analyze_profiles(user_profile, reference_profile, job_role):
+def analyze_profiles(user_profile, reference_profile, job_role, target_company):
     """
     Analyze and compare two LinkedIn profiles for a specific job role using Gemini API
 
@@ -28,6 +28,7 @@ def analyze_profiles(user_profile, reference_profile, job_role):
         user_profile (dict): The user's LinkedIn profile data
         reference_profile (dict): The reference LinkedIn profile data (someone in the target role)
         job_role (str): The target job role
+        target_company (str): The target company
 
     Returns:
         dict: Analysis results including comparison, recommendations, and action items
@@ -102,7 +103,7 @@ def analyze_profiles(user_profile, reference_profile, job_role):
             "strengths": ["strength1", "strength2"]
         }}
 
-        Ensure your analysis is specific to the {job_role} role and provides practical, actionable advice. Remember to return ONLY valid JSON with no additional text or explanation.
+        Ensure your analysis is specific to the {job_role} role, {target_company} comapny and provides practical, actionable advice. Remember to return ONLY valid JSON with no additional text or explanation.
         """
 
         # Call Gemini API

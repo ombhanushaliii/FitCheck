@@ -1184,3 +1184,162 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 2025-04-13 09:55:09,798 - __main__ - INFO - Deleted temporary resume file: D:\Desktop\Hack8\fitcheck\backend\temp\JP_Om_Thanage_Resume.pdf
 2025-04-13 09:55:09,799 - __main__ - INFO - Resume analysis completed in 4.530519 seconds
 2025-04-13 09:55:09,800 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 09:55:09] "POST /api/analyze-resume HTTP/1.1" 200 -
+2025-04-13 09:57:06,738 - __main__ - INFO - Received resume analysis request at 2025-04-13 09:57:06.738885
+2025-04-13 09:57:06,741 - __main__ - INFO - Processing resume file: JP_Om_Thanage_Resume.pdf
+2025-04-13 09:57:06,742 - __main__ - INFO - Saved resume file to D:\Desktop\Hack8\fitcheck\backend\temp\JP_Om_Thanage_Resume.pdf
+2025-04-13 09:57:11,575 - __main__ - INFO - Raw analysis result: {"resume_analysis": {"quick_overview": {"job_title_match": "Low", "industry_fit": "Good", "experience_level_match": "Low"}, "score_breakdown": {"overall_ATS_score": "45%", "skills_match": "50%", "experience_match": "30%", "education_match": "80%"}, "critical_gaps": {"gap_1": {"description": "Lack of professional backend experience (2+ years). The resume primarily showcases student projects and team member roles.", "suggestions": "Focus on highlighting any relevant projects or internships where backend development principles were applied. Quantify achievements wherever possible (e.g., 'Improved API response time by X%')."}, "gap_2": {"description": "Missing specific technologies mentioned in the job description (Python, Node.js, PostgreSQL, Docker, CI/CD).", "suggestions": "Add these technologies to the skills section if you have used them, even in personal projects. If not, consider learning these technologies and adding them to your profile."}, "gap_3": {"description": "Resume is targeted towards a general full-stack role rather than a specific backend position.", "suggestions": "Tailor the objective statement to highlight backend-specific interests and skills. Frame your experience in terms of backend contributions and responsibilities."}}, "keyword_analysis": {"present_keywords": ["Web", "Git", "Problem Solving", "Java", "JavaScript", "MERN", "React"], "missing_keywords": ["Python", "Node.js", "PostgreSQL", "MongoDB", "RESTful APIs", "Docker", "CI/CD", "System Design", "Backend Development", "SQL", "NoSQL"], "suggested_keywords": ["API", "Database", "Server-Side", "Data Structures", "Algorithms"]}, "improvement_plan": {"immediate_changes": ["Add specific backend technologies to the skills section if applicable.", "Tailor the objective statement to focus on backend development.", "Quantify achievements in project descriptions."], "short_term_improvements": ["Create a personal project using Python or Node.js and PostgreSQL to showcase backend skills.", "Contribute to open-source projects related to backend development."], "long_term_development": ["Gain professional experience in a backend role through internships or full-time positions.", "Obtain certifications in relevant backend technologies (e.g., AWS Certified Developer)."]}, "success_metrics": {"current_application_success_rate": "5%", "expected_success_after_improvements": "30%", "time_to_implement_all_changes": "3-6 Months"}, "customized_suggestions": ["Consider highlighting the 'Project Allocation Status for KJSCE' project, emphasizing the server-side components and database interactions if any.", "Even though you have listed MERN, explicitly mention your experience with Node.js if you have used it as the backend.", "Create a separate 'Backend Projects' section to showcase relevant experience, even if it's personal projects."]}}
+2025-04-13 09:57:11,576 - __main__ - INFO - Deleted temporary resume file: D:\Desktop\Hack8\fitcheck\backend\temp\JP_Om_Thanage_Resume.pdf
+2025-04-13 09:57:11,576 - __main__ - INFO - Resume analysis completed in 4.838008 seconds
+2025-04-13 09:57:11,577 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 09:57:11] "POST /api/analyze-resume HTTP/1.1" 200 -
+2025-04-13 10:12:36,356 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\backend\\app.py', reloading
+2025-04-13 10:12:36,551 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:12:36,806 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:12:36,807 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:12:36,807 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:12:38,201 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:12:38,202 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:12:38,298 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:12:38,300 - __main__ - INFO - Starting Flask server
+2025-04-13 10:12:38,315 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:12:38,318 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:14:14,614 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:14:14] "OPTIONS /api/compare HTTP/1.1" 200 -
+2025-04-13 10:14:14,877 - __main__ - INFO - Received profile comparison request at 2025-04-13 10:14:14.877604
+2025-04-13 10:14:14,878 - __main__ - INFO - Request data: {'user_url': 'https://www.linkedin.com/in/omthanage', 'reference_url': 'https://www.linkedin.com/in/rahilk9', 'job_role': 'Software Engineer', 'target_company': 'Google'}
+2025-04-13 10:14:14,878 - __main__ - INFO - Scraping user profile: https://www.linkedin.com/in/omthanage
+2025-04-13 10:14:40,608 - __main__ - INFO - Scraping reference profile: https://www.linkedin.com/in/rahilk9
+2025-04-13 10:16:28,400 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:16:28,401 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:16:28,401 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:16:29,651 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:16:29,672 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:16:29,764 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:16:29,767 - __main__ - INFO - Starting Flask server
+2025-04-13 10:16:29,790 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-13 10:16:29,791 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-13 10:16:29,793 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:16:30,054 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:16:30,054 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:16:30,054 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:16:31,240 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:16:31,242 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:16:31,328 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:16:31,331 - __main__ - INFO - Starting Flask server
+2025-04-13 10:16:31,342 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:16:31,344 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:16:45,767 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:16:45] "OPTIONS /api/compare HTTP/1.1" 200 -
+2025-04-13 10:16:46,029 - __main__ - INFO - Received profile comparison request at 2025-04-13 10:16:46.028651
+2025-04-13 10:16:46,029 - __main__ - INFO - Request data: {'user_url': 'https://www.linkedin.com/in/omthanage', 'reference_url': 'https://www.linkedin.com/in/rahilk9', 'job_role': 'Software Engineer', 'target_company': 'Google'}
+2025-04-13 10:16:46,030 - __main__ - INFO - Scraping user profile: https://www.linkedin.com/in/omthanage
+2025-04-13 10:17:10,635 - __main__ - INFO - Scraping reference profile: https://www.linkedin.com/in/rahilk9
+2025-04-13 10:17:33,184 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:17:33] "[35m[1mPOST /api/compare HTTP/1.1[0m" 500 -
+2025-04-13 10:20:13,188 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:20:13,188 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:20:13,189 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:20:14,428 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:20:14,432 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:20:14,525 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:20:14,527 - __main__ - INFO - Starting Flask server
+2025-04-13 10:20:14,554 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-13 10:20:14,554 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-13 10:20:14,556 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:20:14,818 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:20:14,818 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:20:14,819 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:20:16,136 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:20:16,137 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:20:16,231 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:20:16,233 - __main__ - INFO - Starting Flask server
+2025-04-13 10:20:16,245 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:20:16,248 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:20:27,234 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:20:27] "OPTIONS /api/compare HTTP/1.1" 200 -
+2025-04-13 10:20:27,497 - __main__ - INFO - Received profile comparison request at 2025-04-13 10:20:27.496422
+2025-04-13 10:20:27,498 - __main__ - INFO - Request data: {'user_url': 'https://www.linkedin.com/in/omthanage', 'reference_url': 'https://www.linkedin.com/in/rahilk9', 'job_role': 'Software Engineer', 'target_company': 'Google'}
+2025-04-13 10:20:27,499 - __main__ - INFO - Scraping user profile: https://www.linkedin.com/in/omthanage
+2025-04-13 10:20:52,274 - __main__ - INFO - Scraping reference profile: https://www.linkedin.com/in/rahilk9
+2025-04-13 10:21:17,325 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:21:17] "[35m[1mPOST /api/compare HTTP/1.1[0m" 500 -
+2025-04-13 10:25:13,253 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\Scrapper\\scrapper.py', reloading
+2025-04-13 10:25:13,430 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:25:13,814 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:25:13,815 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:25:13,815 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:25:15,293 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:25:15,294 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:25:15,420 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:25:15,423 - __main__ - INFO - Starting Flask server
+2025-04-13 10:25:15,442 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:25:15,445 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:25:41,519 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\Scrapper\\scrapper.py', reloading
+2025-04-13 10:25:41,723 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:25:42,070 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:25:42,071 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:25:42,071 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:25:43,434 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:25:43,436 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:25:43,547 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:25:43,549 - __main__ - INFO - Starting Flask server
+2025-04-13 10:25:43,565 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:25:43,568 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:25:54,273 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:25:54] "OPTIONS /api/compare HTTP/1.1" 200 -
+2025-04-13 10:25:54,522 - __main__ - INFO - Received profile comparison request at 2025-04-13 10:25:54.522030
+2025-04-13 10:25:54,522 - __main__ - INFO - Request data: {'user_url': 'https://www.linkedin.com/in/omthanage', 'reference_url': 'https://www.linkedin.com/in/rahilk9', 'job_role': 'Software Engineer', 'target_company': 'Google'}
+2025-04-13 10:25:54,523 - __main__ - INFO - Scraping user profile: https://www.linkedin.com/in/omthanage
+2025-04-13 10:26:34,399 - __main__ - INFO - Scraping reference profile: https://www.linkedin.com/in/rahilk9
+2025-04-13 10:27:13,687 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:27:13] "[35m[1mPOST /api/compare HTTP/1.1[0m" 500 -
+2025-04-13 10:27:57,913 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\Scrapper\\scrapper.py', reloading
+2025-04-13 10:27:58,117 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:27:58,380 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:27:58,380 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:27:58,380 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:27:59,708 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:27:59,709 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:27:59,809 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:27:59,812 - __main__ - INFO - Starting Flask server
+2025-04-13 10:27:59,826 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:27:59,829 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:30:33,759 - werkzeug - INFO -  * Detected change in 'D:\\Desktop\\Hack8\\fitcheck\\Scrapper\\scrapper.py', reloading
+2025-04-13 10:30:33,979 - werkzeug - INFO -  * Restarting with stat
+2025-04-13 10:30:34,247 - __main__ - INFO - Added CV directory to path: D:\Desktop\Hack8\fitcheck\python
+2025-04-13 10:30:34,247 - __main__ - INFO - Current Python path: ['D:\\Desktop\\Hack8\\fitcheck\\backend', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\DLLs', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312', 'C:\\Users\\omsth\\AppData\\Roaming\\Python\\Python312\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\win32\\lib', 'C:\\Users\\omsth\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\Pythonwin', 'D:\\Desktop\\Hack8\\fitcheck\\python']
+2025-04-13 10:30:34,247 - __main__ - INFO - Files in CV directory: ['.env', '.gitignore', 'CV.py', 'JP_Om_Thanage_Resume.pdf', 'new.py', 'Resume1.pdf', 'resume_analysis.txt', 'resume_data.json', '__pycache__']
+2025-04-13 10:30:35,669 - __main__ - INFO - Successfully imported process_cv from CV.py
+2025-04-13 10:30:35,670 - __main__ - INFO - Added Scrapper directory to path: D:\Desktop\Hack8\fitcheck\backend\..\Scrapper
+2025-04-13 10:30:35,781 - __main__ - INFO - Successfully imported scrape_linkedin_profile function
+2025-04-13 10:30:35,784 - __main__ - INFO - Starting Flask server
+2025-04-13 10:30:35,797 - werkzeug - WARNING -  * Debugger is active!
+2025-04-13 10:30:35,801 - werkzeug - INFO -  * Debugger PIN: 831-098-246
+2025-04-13 10:30:37,214 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:30:37] "OPTIONS /api/compare HTTP/1.1" 200 -
+2025-04-13 10:30:37,478 - __main__ - INFO - Received profile comparison request at 2025-04-13 10:30:37.478270
+2025-04-13 10:30:37,478 - __main__ - INFO - Request data: {'user_url': 'https://www.linkedin.com/in/omthanage', 'reference_url': 'https://www.linkedin.com/in/rahilk9', 'job_role': 'Software Engineer', 'target_company': None}
+2025-04-13 10:30:37,479 - __main__ - INFO - Scraping user profile: https://www.linkedin.com/in/omthanage
+2025-04-13 10:31:32,394 - __main__ - INFO - Scraping reference profile: https://www.linkedin.com/in/rahilk9
+2025-04-13 10:32:29,339 - __main__ - INFO - Analyzing profiles for job role: Software Engineer
+2025-04-13 10:32:35,073 - gemini_api - INFO - Raw Gemini response: ```json
+{
+  "skills_comparison": {
+    "matching_skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python (Programming Language)",
+      "C++",
+      "React.js",
+      "Git and GitHub",
+      "Responsive Web Design"
+    ],
+    "missing_skills": [
+      "MERN stack (MongoDB, Express.js, React.js, Node.js)",
+      "Firebase",
+      "Java",
+      "Flask",
+      "Competitive Programming"
+    ],
+    "skill_gap_percentage": 36
+  },
+  "experience_analysis": {
+    "alignment": "Om's exper...
+2025-04-13 10:32:35,074 - gemini_api - INFO - Successfully parsed JSON response
+2025-04-13 10:32:35,077 - __main__ - INFO - Saved analysis to D:\Desktop\Hack8\fitcheck\backend\data\analysis_20250413_103235.json
+2025-04-13 10:32:35,078 - __main__ - INFO - Comparison completed in 117.600365 seconds
+2025-04-13 10:32:35,079 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 10:32:35] "POST /api/compare HTTP/1.1" 200 -

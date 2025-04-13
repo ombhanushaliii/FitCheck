@@ -37,7 +37,7 @@ def scrape_linkedin_profile(profile_url):
 
     # Common options for all browsers
     common_args = [
-        "--headless",
+        # "--headless",
         "--disable-gpu",
         "--no-sandbox",
         "--disable-dev-shm-usage",
@@ -102,7 +102,7 @@ def scrape_linkedin_profile(profile_url):
 
                 # Submit the form
                 password_field.submit()
-
+                sleep(30)
                 # Wait for login to complete
                 print("Waiting for login to complete...")
                 wait.until(EC.url_contains('feed'))

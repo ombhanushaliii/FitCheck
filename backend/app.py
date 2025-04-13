@@ -136,6 +136,7 @@ def compare_profiles():
     - user_url: The user's LinkedIn profile URL
     - reference_url: The reference LinkedIn profile URL (someone in the target role)
     - job_role: The target job role
+    - target_company: The target company
 
     Returns:
         JSON response with the comparison analysis or an error message
@@ -160,10 +161,14 @@ def compare_profiles():
 
         if 'job_role' not in data:
             return jsonify({'error': 'Job role not provided'}), 400
+        
+        if 'target_company' not in data:
+            return jsonify({'error': 'Target company not provided'}), 400
 
         user_url = data['user_url']
         reference_url = data['reference_url']
         job_role = data['job_role']
+        target_company = data['target_company']
 
         # Validate URLs
         if not user_url.startswith('https://www.linkedin.com/in/') or not reference_url.startswith('https://www.linkedin.com/in/'):
@@ -190,7 +195,7 @@ def compare_profiles():
 
         # Analyze the profiles using Gemini
         logger.info(f"Analyzing profiles for job role: {job_role}")
-        analysis_result = analyze_profiles(user_profile, reference_profile, job_role)
+        analysis_result = analyze_profiles(user_profile, reference_profile, job_role, target_company)
 
         # Create data directory if it doesn't exist
         data_dir = os.path.join(os.path.dirname(__file__), 'data')
@@ -203,6 +208,7 @@ def compare_profiles():
                 'user_profile': user_profile,
                 'reference_profile': reference_profile,
                 'job_role': job_role,
+                'target_company': target_company,
                 'analysis': analysis_result
             }, f, indent=4)
         logger.info(f"Saved analysis to {analysis_file}")
@@ -225,6 +231,7 @@ def compare_profiles():
                 'url': reference_url
             },
             'job_role': job_role,
+            'target_company': target_company,
             'analysis': analysis_result
         })
 

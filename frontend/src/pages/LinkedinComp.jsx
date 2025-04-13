@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Loader, ArrowRight, Menu, CheckCircle, AlertCircle, User, Briefcase, Award, BookOpen, Zap } from 'lucide-react';
+import { FileText, Loader, ArrowRight, Menu, CheckCircle, AlertCircle, User, Briefcase, Award, BookOpen, Zap, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 function LinkedinComp() {
-  // Form state
+    const { user, signOut } = useAuth();
   const [userUrl, setUserUrl] = useState('');
   const [referenceUrl, setReferenceUrl] = useState('');
   const [jobRole, setJobRole] = useState('');
 
-  // UI state
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [comparisonResult, setComparisonResult] = useState(null);
 
-  // Individual profile data
   const [userProfile, setUserProfile] = useState(null);
   const [referenceProfile, setReferenceProfile] = useState(null);
+  const [target_company, setTarget_company] = useState('');
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +35,7 @@ function LinkedinComp() {
     setComparisonResult(null);
     setUserProfile(null);
     setReferenceProfile(null);
+    setTarget_company(null);
 
     try {
       // Validate inputs
@@ -48,7 +56,8 @@ function LinkedinComp() {
       const requestBody = JSON.stringify({
         user_url: userUrl,
         reference_url: referenceUrl,
-        job_role: jobRole
+        job_role: jobRole,
+        target_company: target_company
       });
 
       const response = await fetch('http://localhost:5000/api/compare', {
@@ -81,21 +90,21 @@ function LinkedinComp() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <Link to="/" className="flex items-center space-x-2">
+      <nav className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
             <FileText className="w-8 h-8 text-indigo-600" />
             <span className="text-xl font-bold">FitCheck</span>
-          </Link>
-        </div>
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-gray-600 hover:text-gray-900">Home</Link>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Features</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Templates</a>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Link to="/login" className="hidden md:block text-indigo-600 font-medium">Log in →</Link>
-          <Menu className="md:hidden w-6 h-6" />
+          </div>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={handleLogout}
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center"
+            >
+              Log out
+              <LogOut className="ml-2 w-4 h-4" />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -126,9 +135,6 @@ function LinkedinComp() {
                 onChange={(e) => setUserUrl(e.target.value)}
                 disabled={loading}
               />
-              <p className="mt-1 text-sm text-gray-500">
-                Enter your own LinkedIn profile URL
-              </p>
             </div>
 
             <div>
@@ -144,9 +150,6 @@ function LinkedinComp() {
                 onChange={(e) => setReferenceUrl(e.target.value)}
                 disabled={loading}
               />
-              <p className="mt-1 text-sm text-gray-500">
-                Enter the LinkedIn profile of someone already in your target role
-              </p>
             </div>
 
             <div>
@@ -162,9 +165,21 @@ function LinkedinComp() {
                 onChange={(e) => setJobRole(e.target.value)}
                 disabled={loading}
               />
-              <p className="mt-1 text-sm text-gray-500">
-                Specify the exact job role you're targeting
-              </p>
+            </div>
+
+            <div>
+              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                Target Company
+              </label>
+              <input
+                type="text"
+                id="target_company"
+                placeholder="e.g., Google, Microsoft, Barclays, etc"
+                className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-base p-3 border"
+                value={target_company}
+                onChange={(e) => setTarget_company(e.target.value)}
+                disabled={loading}
+              />
             </div>
 
             <div className="pt-2">
