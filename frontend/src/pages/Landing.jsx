@@ -11,14 +11,11 @@ function Landing() {
           <FileText className="w-8 h-8 text-indigo-600" />
           <span className="text-xl font-bold">FitCheck</span>
         </div>
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-gray-600 hover:text-gray-900">Product</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Features</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Templates</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Company</a>
-        </div>
+        
         <div className="flex items-center space-x-4">
-          <Link to="/login" className="hidden md:block text-indigo-600 font-medium">Log in →</Link>
+          <Link to="/login" className="hidden md:block bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center">
+            Log in
+          </Link>
           <Menu className="md:hidden w-6 h-6" />
         </div>
       </nav>
@@ -28,7 +25,7 @@ function Landing() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block mb-4">
-              <span className="bg-indigo-50 text-indigo-600 py-1 px-3 rounded-full text-sm font-medium">We're hiring</span>
+              <span className="bg-indigo-50 text-indigo-600 py-1 px-3 rounded-full text-sm font-medium">Welcome</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
               A better way to build your career
@@ -38,11 +35,8 @@ function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/login" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
-                Try LinkedIn Scraper
+                Try FitCheck
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-              <Link to="/login" className="text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 hover:border-gray-400 transition-colors">
-                Get started →
               </Link>
             </div>
           </div>
@@ -53,12 +47,12 @@ function Landing() {
               <div className="space-y-6">
                 <div className="border-b pb-4">
                   <h2 className="text-2xl font-bold text-gray-900">Om Bhanushali</h2>
-                  <p className="text-gray-600">Senior Software Engineer</p>
+                  <p className="text-gray-600">Software Engineer @Google</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    <span>10+ years of experience</span>
+                    <span>Expert @Codeforces</span>
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
