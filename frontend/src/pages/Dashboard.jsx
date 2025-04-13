@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, Briefcase, BarChart3, Upload, Plus, ExternalLink, Menu } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 function Dashboard() {
+  const { user } = useAuth();
+  
   // Mock data and states
-  const [user] = useState({ name: 'Om Bhanushali' });
   const [resumes] = useState([
     { _id: '1', fileName: 'resume_2024.pdf', createdAt: '2024-03-15T10:00:00Z' }
   ]);
@@ -20,6 +22,19 @@ function Dashboard() {
       createdAt: '2024-03-15T12:00:00Z'
     }
   ]);
+  
+  // Get user's name from their profile if available
+  const getUserName = () => {
+    if (!user) return 'there';
+    
+    // Check if user has user_metadata with a name
+    if (user.user_metadata && user.user_metadata.full_name) {
+      return user.user_metadata.full_name;
+    }
+    
+    // Fallbacks in order of preference
+    return user.user_metadata?.name || user.email?.split('@')[0] || 'there';
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -30,59 +45,17 @@ function Dashboard() {
             <FileText className="w-8 h-8 text-indigo-600" />
             <span className="text-xl font-bold">FitCheck</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-gray-900">
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
         </div>
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome back, {user.name}!</h1>
-          <p className="text-gray-600 mt-2">Track your job applications and skill matches all in one place.</p>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome back, {getUserName()}!</h1>
+          <p className="text-gray-600 mt-2">Analyse & compare your resume with the best in game.</p>
         </div>
 
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-indigo-50 text-indigo-600">
-                <FileText className="w-6 h-6" />
-              </div>
-              <div className="ml-4">
-                <h2 className="text-lg font-semibold text-gray-700">Resumes</h2>
-                <p className="text-2xl font-bold text-gray-900">{resumes.length}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-blue-50 text-blue-600">
-                <Briefcase className="w-6 h-6" />
-              </div>
-              <div className="ml-4">
-                <h2 className="text-lg font-semibold text-gray-700">Job Posts</h2>
-                <p className="text-2xl font-bold text-gray-900">{jobPosts.length}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-green-50 text-green-600">
-                <BarChart3 className="w-6 h-6" />
-              </div>
-              <div className="ml-4">
-                <h2 className="text-lg font-semibold text-gray-700">Analyses</h2>
-                <p className="text-2xl font-bold text-gray-900">{analyses.length}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Quick Actions */}
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
