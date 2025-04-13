@@ -31,7 +31,8 @@ function Landing() {
               A better way to build your career
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              Create professional resumes in minutes with our AI-powered platform. Stand out from the crowd and land your dream job with beautifully crafted resumes tailored to your industry.
+            Bridge the gap between your resume and your dream job.
+            Our AI-powered platform analyzes your resume against real-world career paths to show you what you're missing — skills, projects, or experience — and helps you build a personalized roadmap to get hired faster.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/login" className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center">
