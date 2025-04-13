@@ -152,16 +152,26 @@ def parse_resume_text(text):
     return resume_data
 
 def analyze_resume(resume_text, job_description):
+    """
+    Analyze the resume text against the job description using the generative AI model.
+
+    Args:
+        resume_text (str): The extracted text from the resume.
+        job_description (str): The job description to analyze against.
+
+    Returns:
+        str: JSON string containing the analysis result.
+    """
     try:
         input_prompt = f"""
         You are an expert resume analyzer and career advisor. Your task is to analyze resumes against job descriptions and provide specific, actionable feedback in a consistent JSON format.
 
         Instructions:
-        1. Return ONLY a valid JSON object that strictly follows the schema below
-        2. Do not include any additional text or explanations
-        3. All fields must be filled with appropriate values
-        4. Ensure all required fields are present
-        5. Use proper JSON formatting
+        1. Return ONLY a valid JSON object that strictly follows the schema below.
+        2. Do not include any additional text or explanations.
+        3. All fields must be filled with appropriate values.
+        4. Ensure all required fields are present.
+        5. Use proper JSON formatting.
 
         Required JSON Schema:
         {{
@@ -215,63 +225,52 @@ def analyze_resume(resume_text, job_description):
 
         Analyze the above resume against the job description and return a JSON object following the schema exactly.
         """
-        
         response = model.generate_content(input_prompt)
-        # Parse the response to ensure it's valid JSON
+
+        # Log the raw response for debugging
+        print(f"Raw AI Response: {response.text}")
+
+        # Validate the response to ensure it is valid JSON
         try:
-            json.loads(response.text)
-            return response.text
+            parsed_response = json.loads(response.text)
+            return json.dumps(parsed_response)  # Return as a JSON string
         except json.JSONDecodeError:
-            # If the response isn't valid JSON, try to extract JSON from it
+            # Attempt to extract JSON from the response using regex
             import re
             json_match = re.search(r'\{.*\}', response.text, re.DOTALL)
             if json_match:
-                return json_match.group(0)
-            raise ValueError("Failed to extract valid JSON from response")
+                extracted_json = json_match.group(0)
+                try:
+                    parsed_response = json.loads(extracted_json)
+                    return json.dumps(parsed_response)  # Return as a JSON string
+                except json.JSONDecodeError:
+                    raise ValueError("Failed to extract valid JSON from the AI response.")
+            raise ValueError("Invalid JSON response from the generative AI model.")
+
     except Exception as e:
         return f"Error analyzing resume: {str(e)}"
 
-def main():
+def process_cv(file_path):
+    """
+    Process a CV file and return structured data and analysis.
+    """
     try:
-        # Get resume path and job description from user
-        resume_path = input("Enter the path to your resume file: ")
-        job_description = input("Enter the job description: ")
-        
-        if not os.path.exists(resume_path):
-            print("Resume file not found. Please check the path and try again.")
-            return
-            
-        # Extract and parse resume
-        print("\nExtracting text from resume...")
-        extracted_text = extract_text_from_resume(resume_path)
+        # Extract text from the resume
+        extracted_text = extract_text_from_resume(file_path)
         if extracted_text.startswith("Error"):
-            print(extracted_text)
-            return
-            
-        print("Parsing resume data...")
-        resume_data = parse_resume_text(extracted_text)
-        
-        # Save structured data
-        with open("resume_data.json", "w") as f:
-            json.dump(resume_data, f, indent=2)
-        print("\nResume data has been saved to 'resume_data.json'")
-        
-        # Analyze resume against job description
-        print("\nAnalyzing resume against job description...")
-        analysis_result = analyze_resume(extracted_text, job_description)
-        
-        # Save analysis result
-        with open("resume_analysis.txt", "w") as f:
-            f.write(analysis_result)
-        print("\nAnalysis result has been saved to 'resume_analysis.txt'")
-        
-        # Print analysis result
-        print("\nAnalysis Result:")
-        print("-" * 50)
-        print(analysis_result)
-        
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
+            return {"error": extracted_text}
 
-if __name__ == "__main__":
-    main()
+        # Parse the resume text into structured data
+        resume_data = parse_resume_text(extracted_text)
+
+        # Analyze the resume against a placeholder job description
+        job_description = "Placeholder job description for analysis."
+        analysis_result = analyze_resume(extracted_text, job_description)
+
+        # Return the structured data and analysis
+        return {
+            "resume_data": resume_data,
+            "analysis_result": analysis_result
+        }
+    except Exception as e:
+        return {"error": f"An error occurred while processing the CV: {str(e)}"}

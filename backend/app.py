@@ -1,12 +1,10 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 import os
 import sys
-import json
 import logging
 import traceback
 from datetime import datetime
-from gemini_api import analyze_profiles
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # Configure logging
 logging.basicConfig(
@@ -18,6 +16,29 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
+
+# Add the directory containing CV.py to the Python path
+cv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'python'))
+sys.path.append(cv_path)
+logger.info(f"Added CV directory to path: {cv_path}")
+logger.info(f"Current Python path: {sys.path}")  # Debug: Print Python path
+
+# Debug: List files in the CV directory
+try:
+    logger.info(f"Files in CV directory: {os.listdir(cv_path)}")
+except Exception as e:
+    logger.error(f"Failed to list files in CV directory: {e}")
+
+# Import CV processing functionality
+try:
+    from CV import process_cv  # Ensure the file is named CV.py (case-sensitive)
+    logger.info("Successfully imported process_cv from CV.py")
+except ImportError as e:
+    logger.error(f"Failed to import process_cv from CV.py: {e}")
+    raise
+
+import json
+from gemini_api import analyze_profiles
 
 scrapper_path = os.path.join(os.path.dirname(__file__), '..', 'Scrapper')
 sys.path.append(scrapper_path)
@@ -213,6 +234,142 @@ def compare_profiles():
         return jsonify({
             'error': str(e),
             'message': 'An error occurred while comparing profiles. Please check the server logs for details.'
+        }), 500
+
+@app.route('/api/process-cv', methods=['POST'])
+def process_cv_endpoint():
+    """
+    API endpoint to process a CV file.
+
+    Expects a file upload with the key 'cv_file'.
+
+    Returns:
+        JSON response with the processed CV data or an error message.
+    """
+    start_time = datetime.now()
+    logger.info(f"Received CV processing request at {start_time}")
+
+    try:
+        # Check if a file is provided in the request
+        if 'cv_file' not in request.files:
+            logger.warning("No CV file provided in request")
+            return jsonify({'error': 'No CV file provided'}), 400
+
+        # Get the uploaded file
+        cv_file = request.files['cv_file']
+        logger.info(f"Processing CV file: {cv_file.filename}")
+
+        # Save the uploaded file temporarily
+        temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
+        os.makedirs(temp_dir, exist_ok=True)
+        temp_file_path = os.path.join(temp_dir, cv_file.filename)
+        cv_file.save(temp_file_path)
+        logger.info(f"Saved CV file to {temp_file_path}")
+
+        # Process the CV using the function from CV.py
+        from CV import process_cv  # Import the function
+        processed_data = process_cv(temp_file_path)
+
+        # Clean up the temporary file
+        os.remove(temp_file_path)
+        logger.info(f"Deleted temporary CV file: {temp_file_path}")
+
+        # Check for errors in processing
+        if "error" in processed_data:
+            return jsonify({'error': processed_data["error"]}), 500
+
+        # Calculate processing time
+        end_time = datetime.now()
+        processing_time = (end_time - start_time).total_seconds()
+        logger.info(f"CV processing completed in {processing_time} seconds")
+
+        return jsonify(processed_data)
+
+    except Exception as e:
+        logger.error(f"Error processing CV: {str(e)}")
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'error': str(e),
+            'message': 'An error occurred while processing the CV. Please check the server logs for details.'
+        }), 500
+
+@app.route('/api/analyze-resume', methods=['POST'])
+def analyze_resume_endpoint():
+    """
+    API endpoint to analyze a resume against a job description.
+
+    Expects:
+    - A file upload with the key 'resume'.
+    - A job description in the form-data with the key 'job_description'.
+
+    Returns:
+        JSON response with the analysis result or an error message.
+    """
+    start_time = datetime.now()
+    logger.info(f"Received resume analysis request at {start_time}")
+
+    try:
+        # Check if a file is provided in the request
+        if 'resume' not in request.files:
+            logger.warning("No resume file provided in request")
+            return jsonify({'error': 'No resume file provided'}), 400
+
+        # Check if job description is provided
+        job_description = request.form.get('job_description', '').strip()
+        if not job_description:
+            logger.warning("No job description provided in request")
+            return jsonify({'error': 'No job description provided'}), 400
+
+        # Get the uploaded file
+        resume_file = request.files['resume']
+        logger.info(f"Processing resume file: {resume_file.filename}")
+
+        # Save the uploaded file temporarily
+        temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
+        os.makedirs(temp_dir, exist_ok=True)
+        temp_file_path = os.path.join(temp_dir, resume_file.filename)
+        resume_file.save(temp_file_path)
+        logger.info(f"Saved resume file to {temp_file_path}")
+
+        # Process the resume using the function from CV.py
+        from CV import extract_text_from_resume, analyze_resume
+        extracted_text = extract_text_from_resume(temp_file_path)
+        if extracted_text.startswith("Error"):
+            return jsonify({'error': extracted_text}), 500
+
+        analysis_result = analyze_resume(extracted_text, job_description)
+
+        # Log the raw response for debugging
+        logger.info(f"Raw analysis result: {analysis_result}")
+
+        # Check for errors in analysis
+        if isinstance(analysis_result, str) and analysis_result.startswith("Error"):
+            return jsonify({'error': analysis_result}), 500
+
+        # Parse the analysis result to ensure it is valid JSON
+        try:
+            parsed_result = json.loads(analysis_result)
+        except json.JSONDecodeError:
+            logger.error("Invalid JSON returned from CV.py")
+            return jsonify({'error': 'Invalid JSON returned from analysis.'}), 500
+
+        # Clean up the temporary file
+        os.remove(temp_file_path)
+        logger.info(f"Deleted temporary resume file: {temp_file_path}")
+
+        # Calculate processing time
+        end_time = datetime.now()
+        processing_time = (end_time - start_time).total_seconds()
+        logger.info(f"Resume analysis completed in {processing_time} seconds")
+
+        return jsonify({'analysis_result': parsed_result})
+
+    except Exception as e:
+        logger.error(f"Error analyzing resume: {str(e)}")
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'error': str(e),
+            'message': 'An error occurred while analyzing the resume. Please check the server logs for details.'
         }), 500
 
 if __name__ == '__main__':
