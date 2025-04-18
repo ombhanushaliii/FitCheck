@@ -52,7 +52,6 @@ Currently in early prototype stage. We're working on:
 - Enriching the roadmap generation system
 - Scaling
 - Expanding role and company coverage
-- UI polish and onboarding experience
 
 ---
 
