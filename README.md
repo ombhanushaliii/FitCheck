@@ -19,10 +19,10 @@ Specifically:
 
 ## How FitCheck Solves This
 
-- 🔍 **Analyzes your resume**
-- 🔗 **Searches LinkedIn for real-world profiles** of people in your target role
-- 📊 **Compares skillsets, tools, projects, certifications, etc.**
-- 🧭 **Suggests a personalized roadmap** to close the gap between you and your dream job
+-  **Analyzes your resume**
+-  **Searches LinkedIn for real-world profiles** of people in your target role
+-  **Compares skillsets, tools, projects, certifications, etc.**
+-  **Suggests a personalized roadmap** to close the gap between you and your dream job
 
 ---
 
@@ -40,7 +40,7 @@ Specifically:
 
 ---
 
-## 🛠 Challenges We Ran Into
+##  Challenges We Ran Into
 
 > One of the major challenges we faced was gathering real-world profile data, as scraping LinkedIn is restricted by their policies and requires careful handling of browser automation, login sessions, and anti-bot measures.
 
